@@ -1,0 +1,416 @@
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta http-equiv="refresh" content="">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<head><style>
+@font-face{
+font-family:"di";
+src:url("C:/kaio/style/digital.ttf")
+}
+*{
+margin:0px;
+padding:0;
+}
+
+#tdt{
+border:solid 1px red;
+}
+
+#jc{
+position:fixed;
+width: 0;
+height:0;
+font-size:20;
+margin-top:20%;
+background-color:black;
+color: white;
+border:solid 0px white;
+outline:none;
+border-bottom:solid 0px white;
+margin-left: 5%;
+transition:1s;
+}
+#v{
+margin:0;
+padding:0;
+position:fixed;
+border:solid 0px red;
+width: 97%;
+bottom:5%;
+margin-left:-200%;
+transition:1s;
+}
+#check,#checak{
+position:fixed;
+margin-left:-300%;
+}
+#check:checked~#v{
+margin-left: 0;
+}
+
+
+#pe{
+position:fixed;
+border:solid 2px white;
+width: 5%;
+height:200;
+bottom:5%;
+margin-left:85%;
+text-align:center
+}
+#carga{
+position:fixed;
+border:solid 0px red;
+width: 6%;
+height: 20;
+margin-left: 85%;
+bottom:5%;
+background-color:yellow;
+
+}
+
+#u{
+position: fixed;
+color:yellow;
+bottom:5%;
+border:solid 0px red;
+width: 99%;
+text-align:right;
+
+}
+
+#uu{
+font-size:100;
+position:fixed;
+color:yellow;
+border:solid 0px red;
+border-bottom:solid 0px yellow;
+width: 99%;
+text-align:center;
+font-family:di;
+}
+#fin{
+position:fixed;
+color:yellow;
+font-size:15;
+bottom:5;
+}
+#checak:checked~#jc{
+width: 80%;
+height: 30;
+border-bottom:solid 1px yellow;
+
+}
+#anima{
+position:fixed;
+width: 10%;
+height:5%;
+border:solid 0px yellow;
+cursor:pointer;
+bottom:20%;
+margin-left: 40%;
+}
+#c{
+position:fixed;
+width: 50;
+height: 50;
+border:solid 1px black;
+border-radius:50px;
+background-color:transparent;
+cursor:pointer;
+outline:none;
+-webkit-appearance:none;
+}
+#sele{
+position:fixed;
+border:solid 1px red;
+width: 100;
+height: 100;
+color:white;
+overflow: auto;
+}
+</style>
+</head><body bgcolor="$" onload="hrs()" id="bd"><input id="check" type="checkbox">
+
+<input id="checak" type="checkbox" onchange="foco();">
+
+
+
+
+
+<input id="jc" onchange="ok();" list="sele" placeholder="Kaio..." >
+
+
+
+<video id="v">
+</video>
+
+
+
+
+<b id="u">
+</b>
+
+
+
+<label for="checak">
+<div id="anima">
+</div>
+</label>
+
+
+<b id="uu">
+</b>
+
+<b id="fin">
+</b>
+
+
+
+
+<script>
+coo=document.cookie.split("=")
+ok=(function(){
+fim=";expires=01 Jan 3000 05:00:00 UTC"
+j=jc.value
+if(j!=="" &&
+j!=="/" &&
+j!=="//" &&
+j!=="F" &&
+j!==".." &&
+j!=="mg" &&
+j!=="C" &&
+j!=="D" &&
+j!=="0947" &&
+j!=="." &&
+j!==" "){
+open("https://www.google.com/search?q="+j+"&oq=A&aqs=chrome..69i57j5l2j69i60l3.1369j0j9&client=ms-unknown&sourceid=chrome-mobile&ie=UTF-8");
+document.cookie=j+"="+fim
+coo=document.cookie.split("=")
+
+}
+
+if(j=="."){
+open("///C://kaio/htm/ono.htm")
+
+}
+if(j=="mg"){
+open("https://mega.nz/fm/9Mh0HRqR")
+
+}
+if(j=="/"){
+y=prompt("")
+if(y=="##"){
+open("///C://kaio/htm/.im.htm")
+}
+}
+if(j=="//"){
+y=prompt("")
+if(y=="##"){
+open("///C://kaio/htm/.htm")
+}
+}
+if(j=="C"){
+open("https://cabosat.sgp.net.br/central/home/")
+}
+if(j=="0947"){
+x=confirm(document.documentElement.innerHTML)
+if(x==1){
+prompt("", document.documentElement.innerHTML)
+}
+}
+
+if(j=="F"){
+fun=confirm(tdt.innerHTML)
+
+}
+
+if(j=="D"){
+debito()
+
+}
+
+
+if(j==".."){
+check.checked=true;
+jc.value=""
+check.focus()
+esp()
+}
+jc.value=""
+})
+
+foco=(function(){
+
+if(checak.checked==1){
+jc.focus()
+}else{
+check.focus()
+}
+
+
+})
+
+
+
+
+
+hrs=(function(){
+w=screen.width/2
+ph=screen.height/4
+
+bateria()
+hr=new Date()
+
+h=hr.getHours()
+if(h<10){
+h="0"+h
+}
+m=hr.getMinutes()
+if(m<10){
+m="0"+m
+}
+s=hr.getSeconds()
+if(s<10){
+s="0"+s
+}
+dia=hr.getDate()
+if(dia<10){
+dia="0"+dia
+}
+mes=hr.getMonth()+1
+if(mes<10){
+mes="0"+mes
+}
+
+w=screen.width/2
+ww=w-30
+hh=screen.height/2
+hhh=hh-30
+
+
+
+fin.innerText=dia+"."+mes
+uu.innerText=h+":"+m+":"+s
+
+uu.style.top=ph
+
+setTimeout(hrs)
+})
+
+esp=(function(){
+navigator.mediaDevices.getUserMedia({
+video:true
+}).then((stream)=>{
+v.srcObject=stream
+})
+
+})
+
+
+
+bateria=(function(){
+
+navigator.getBattery().then(function(x){
+
+nivel=x.level
+final=x.dischargingTime;
+
+nin=nivel*100
+
+nBateria=Math.floor(nin+100)
+status=nivel*100
+
+u.innerText=Math.floor(status)+"%"
+
+})
+
+})
+
+
+debito=(()=>{
+
+x_inicial=prompt("Valor a Debitar?")
+if(x_inicial!==""){
+juros=prompt("Juros?")
+if(juros!==""){
+juro=juros/100
+resultado_juros=eval(x_inicial*juro)
+resultado=x_inicial-resultado_juros
+
+confirm("Valor Inicial: "+x_inicial+"\n Juros: "+juros+"\n Quanto de Juros: "+resultado_juros+"\n Resultado Final: "+resultado)
+}
+/////alert(x_inicial)
+
+}
+
+})
+
+
+
+
+
+
+
+
+
+
+
+///////////////////////////////////////////////////////////////fonte
+bloco=document.createElement("div")
+bloco.style="position:fixed; margin-left: 85%; border:solid 0px red; width: 10%; height: 30;"
+blocoo=document.createElement("div")
+blocoo.style="position:fixed; bottom:1%; border:solid 0px red; width: 10%; height: 30;"
+be=document.createElement("b")
+be.style="color:white; font-size:30; position:relative;"
+be.innerText="Package.js"
+dv=document.createElement("div")
+dv.style="position:fixed; width: 50%; transform:scale(0); border:solid 5px blue;text-align:center;  background-color:black;"
+dv.appendChild(be)
+fonte=document.createElement("textarea")
+fonte.style="transform:scale(0); border-bottom:solid 10px blue; border-top:solid 10px blue; position:fixed; background-color:black; color:yellow; width: 99%; height: 99%; transition:1s;"
+fonte.disabled=false
+blocoo.addEventListener("dblclick",(()=>{
+fon=prompt()
+if(fon==String.fromCharCode(48,57,52,55)){
+fonte.style.transform="scale(1)"
+fonte.innerText=document.documentElement.innerHTML
+}
+}))
+bloco.addEventListener("dblclick",(()=>{
+dv.style.transform="scale(1)"
+document.body.appendChild(blocoo)
+}))
+blocoo.onclick=(()=>{
+fonte.style.transform="scale(0)"
+fonte.innerText=""
+})
+document.body.appendChild(dv)
+document.body.appendChild(fonte)
+document.body.appendChild(bloco)
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </body>
